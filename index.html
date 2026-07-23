@@ -3,29 +3,33 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>BonguHub</title>
+    <title>BonguHub</title>
 
-<meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#0f172a">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="description"
+          content="BonguHub Telegram Mini App">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
-rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-<link rel="stylesheet"
-href="assets/css/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
 
 </head>
 
@@ -33,27 +37,165 @@ href="assets/css/style.css">
 
 <div class="app">
 
-<header class="header">
+    <!-- ================= HEADER ================= -->
 
-<div class="logo">
+    <header class="header">
 
-<i class="fa-solid fa-gift"></i>
+        <div class="header-left">
 
-<h2>BonguHub</h2>
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <i class="fa-solid fa-gift"></i>
+
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>BonguHub</h2>
+
+                    <small>
+
+                        Telegram Mini App
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="header-right">
+
+            <button id="searchBtn"
+                    class="iconBtn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+            <button id="menuBtn"
+                    class="iconBtn">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- ================= SEARCH ================= -->
+
+    <section id="searchBox"
+             class="searchBox hidden">
+
+        <input type="text"
+               id="searchInput"
+               placeholder="Search offers...">
+
+    </section>
+
+    <!-- ================= MAIN ================= -->
+
+    <main id="appContent">
+
+        <!-- Dynamic Content -->
+
+    </main>
+
+        <!-- ================= LOADING ================= -->
+
+    <div id="loadingScreen" class="loadingScreen hidden">
+
+        <div class="loader"></div>
+
+        <p>Loading...</p>
+
+    </div>
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast" class="toast hidden">
+
+        Done
+
+    </div>
+
+    <!-- ================= BOTTOM NAVIGATION ================= -->
+
+    <nav class="bottomNav">
+
+        <button class="navItem active"
+                data-page="home">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </button>
+
+        <button class="navItem"
+                data-page="offers">
+
+            <i class="fa-solid fa-gift"></i>
+
+            <span>Offers</span>
+
+        </button>
+
+        <button class="navItem"
+                data-page="guide">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>Guide</span>
+
+        </button>
+
+        <button class="navItem"
+                data-page="signals">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>Signals</span>
+
+        </button>
+
+        <button class="navItem"
+                data-page="more">
+
+            <i class="fa-solid fa-ellipsis"></i>
+
+            <span>More</span>
+
+        </button>
+
+    </nav>
 
 </div>
 
-<button id="menuBtn">
+<!-- Telegram SDK -->
 
-<i class="fa-solid fa-bars"></i>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-</button>
+<!-- Data -->
 
-</header>
+<script src="data/offers.js"></script>
 
-<main id="appContent">
+<!-- Telegram -->
 
-</main>
+<script src="assets/js/telegram.js"></script>
+
+<!-- Main App -->
+
+<script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
 
 <nav class="bottomNav">
 
