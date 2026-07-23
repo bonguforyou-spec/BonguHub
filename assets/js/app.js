@@ -1,64 +1,63 @@
-// ==============================
-// BonguHub Telegram Mini App
-// ==============================
-
-const tg = window.Telegram.WebApp;
-
-tg.ready();
-tg.expand();
-
-// Telegram Theme
-document.body.style.backgroundColor =
-    tg.themeParams.bg_color || "#0f172a";
-
-// Telegram User
-const user = tg.initDataUnsafe?.user;
-
 const appContent = document.getElementById("appContent");
 
 function renderHome() {
 
-    appContent.innerHTML = `
+    let html = `
+    
+        <section class="hero">
 
-        <div class="welcome-card">
-
-            <h2>
-                👋 স্বাগতম ${user?.first_name || "বন্ধু"}
-            </h2>
+            <h1>🎁 BonguHub</h1>
 
             <p>
-                BonguHub Telegram Mini App-এ স্বাগতম।
+
+                বাংলাদেশের সেরা Bonus Platform
+
             </p>
 
-        </div>
+        </section>
 
     `;
+
+    if (window.TelegramApp && TelegramApp.getUser()) {
+
+        const user = TelegramApp.getUser();
+
+        html += `
+
+            <section class="card">
+
+                <h2>Telegram User</h2>
+
+                <p><b>Name:</b> ${user.first_name || ""} ${user.last_name || ""}</p>
+
+                <p><b>Username:</b> ${user.username || "N/A"}</p>
+
+                <p><b>ID:</b> ${user.id}</p>
+
+            </section>
+
+        `;
+
+    }
+
+    html += `
+
+        <section class="card">
+
+            <h2>🔥 Welcome</h2>
+
+            <p>
+
+                BonguHub Telegram Mini App সফলভাবে চলছে।
+
+            </p>
+
+        </section>
+
+    `;
+
+    appContent.innerHTML = html;
 
 }
 
 renderHome();
-
-// Bottom Navigation
-
-document.querySelectorAll(".navItem").forEach(btn => {
-
-    btn.addEventListener("click", () => {
-
-        document
-            .querySelectorAll(".navItem")
-            .forEach(item => item.classList.remove("active"));
-
-        btn.classList.add("active");
-
-        const page = btn.dataset.page;
-
-        appContent.innerHTML = `
-            <div class="welcome-card">
-                <h2>${page.toUpperCase()}</h2>
-                <p>এই পেজটি আমরা পরের ধাপে তৈরি করব।</p>
-            </div>
-        `;
-
-    });
-
-});
